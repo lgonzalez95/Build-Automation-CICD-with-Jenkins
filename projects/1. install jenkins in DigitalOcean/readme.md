@@ -19,9 +19,14 @@ Jenkins, Docker, DigitalOcean, Linux
 5. Install docker: `apt  install docker.io`
 6. Check that docker is availe by running: `docker`
 7. Run Jenkins container: `docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts`
+- To share the docker socket between host and container: 
+- Install docker on the container
+- Run `docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts`
 8. Open the jenkins ip: `http://x.x.x.x:8080`
 9. Login to the containter and get Jenkins password.
 10. Paste the password in the browser and continue.
 11. Select the sugested plugins and continue.
 12. Enter the account information and continue.
 13. Finish the installation by confirming the suggested address.
+
+docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
